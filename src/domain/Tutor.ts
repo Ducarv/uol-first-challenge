@@ -7,7 +7,7 @@ export class Tutor {
     phone: string;
     email: string;
     date_of_birth: Date;
-    pets: PetProps[]
+    pets?: PetProps[]
     
     constructor(props: TutorProps) {
         this.name = props.name;
