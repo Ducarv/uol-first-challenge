@@ -1,6 +1,6 @@
 import { PetRepository } from "./PetRepo"
 import { PetProps } from '../../../domain/interfaces/PetProps';
-import { prisma } from '../prisma/prisma';
+import { prisma } from '../../../database/prisma/prisma';
 import { Pet } from "@prisma/client";
 
 export class PetRepositoryPrisma implements PetRepository {
@@ -23,7 +23,7 @@ export class PetRepositoryPrisma implements PetRepository {
         where: { id: petId },
         data: props as Pet,
       });
-      
+
       return pet as PetProps;
     }
   

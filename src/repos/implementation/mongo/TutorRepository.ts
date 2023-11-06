@@ -1,6 +1,6 @@
 import { TutorRepository } from "./TutorRepo";
 import { TutorProps } from "../../../domain/interfaces/TutorProps";
-import { prisma } from "../prisma/prisma";
+import { prisma } from "../../../database/prisma/prisma";
 import { Tutor } from "@prisma/client";
 
 export class TutorRepositoryPrisma implements TutorRepository {
