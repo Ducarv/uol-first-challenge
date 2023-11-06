@@ -1,7 +1,6 @@
 import { PetProps } from "./PetProps";
-
 export interface TutorProps {
-    id?: number;
+    id?: number | string;
     name: string;
     phone: string;
     email: string;

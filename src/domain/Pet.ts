@@ -1,7 +1,7 @@
 import { PetProps } from "./interfaces/PetProps";
 
 export class Pet {
-    id?: number;
+    id?: number | string;
     name: string;
     species: string;
     carry: string;

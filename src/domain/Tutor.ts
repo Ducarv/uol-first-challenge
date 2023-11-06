@@ -2,7 +2,7 @@ import { PetProps } from "./interfaces/PetProps";
 import { TutorProps } from "./interfaces/TutorProps";
 
 export class Tutor {
-    id?: number;
+    id?: number | string;
     name: string;
     phone: string;
     email: string;
