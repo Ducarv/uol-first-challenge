@@ -6,7 +6,23 @@ export class UpdatePet {
 
     async execute(petId: string, tutorId: string, props: Partial<PetProps>) {
         try {
-            const updatedPet = await this.repository.update(petId, tutorId, props);
+            const pets = await this.repository.listAll();
+            const target = pets?.find(pet => {
+                pet.id === petId, 
+                pet.tutorId === tutorId
+            })
+
+            if(!target) {
+                throw new Error("Pet not found");
+            }
+
+            const updatedPet = {
+                ...target,
+                ...props
+            }
+
+            await this.repository.update(petId, tutorId, updatedPet);
+            
             return updatedPet;
         } catch(err: any) {
             if(err instanceof Error) {
