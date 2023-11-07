@@ -1,7 +1,7 @@
 import { PetProps } from "../../../domain/interfaces/PetProps";
 
 export interface PetRepository {
-    create: (props: PetProps) => Promise<PetProps | undefined>;
-    update: (PetId: string, props: Partial<PetProps>) => Promise<PetProps | undefined>;
-    delete: (PetId: string) => Promise<void>;
+    create: (props: PetProps, tutorId: string) => Promise<PetProps | undefined>;
+    update: (petId: string, tutorId: string, props: Partial<PetProps>) => Promise<PetProps | undefined>;
+    delete: (petId: string, tutorId: string) => Promise<void>;
 }

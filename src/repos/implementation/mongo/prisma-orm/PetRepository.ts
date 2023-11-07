@@ -4,7 +4,7 @@ import { prisma } from '../../../../database/prisma/prisma';
 import { Pet } from "@prisma/client";
 
 export class PetRepositoryPrisma implements PetRepository {
-    async create(props: PetProps): Promise<PetProps | undefined> {
+    async create(props: PetProps, tutorId: string): Promise<PetProps | undefined> {
       const pet = await prisma.pet.create({
         data: {
           name: props.name,
@@ -12,24 +12,30 @@ export class PetRepositoryPrisma implements PetRepository {
           carry: props.carry,
           weight: props.weight,
           date_of_birth: props.date_of_birth,
-          tutorId: props.tutorId ? String(props.tutorId) : undefined,
+          tutorId: tutorId,
         },
       });
       return pet as PetProps;
     }
   
-    async update(petId: string, props: Partial<PetProps>): Promise<PetProps | undefined> {
+    async update(petId: string, tutorId: string, props: Partial<PetProps>): Promise<PetProps | undefined> {
       const pet = await prisma.pet.update({
-        where: { id: petId },
+        where: { 
+          id: petId, 
+          tutorId: tutorId 
+        },
         data: props as Pet,
       });
 
       return pet as PetProps;
     }
   
-    async delete(petId: string): Promise<void> {
+    async delete(petId: string, tutorId:string): Promise<void> {
       await prisma.pet.delete({
-        where: { id: petId },
+        where: { 
+          id: petId, 
+          tutorId: tutorId
+        },
       });
     }
   }
