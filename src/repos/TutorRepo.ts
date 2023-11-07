@@ -1,4 +1,4 @@
-import { TutorProps } from "../../../domain/interfaces/TutorProps";
+import { TutorProps } from "../domain/interfaces/TutorProps";
 
 export interface TutorRepository {
     listAll: () => Promise<TutorProps[] | undefined>;

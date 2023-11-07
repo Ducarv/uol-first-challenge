@@ -1,4 +1,4 @@
-import { TutorRepository } from "../TutorRepo";
+import { TutorRepository } from "../../../TutorRepo";
 import { TutorProps } from "../../../../domain/interfaces/TutorProps";
 import { prisma } from "../../../../database/prisma/prisma";
 import { Tutor } from "@prisma/client";

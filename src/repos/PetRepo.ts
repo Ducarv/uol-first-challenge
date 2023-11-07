@@ -1,4 +1,4 @@
-import { PetProps } from "../../../domain/interfaces/PetProps";
+import { PetProps } from "../domain/interfaces/PetProps";
 
 export interface PetRepository {
     create: (props: PetProps, tutorId: string) => Promise<PetProps | undefined>;
