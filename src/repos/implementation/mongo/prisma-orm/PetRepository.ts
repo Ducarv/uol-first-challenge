@@ -1,6 +1,6 @@
-import { PetRepository } from "./PetRepo"
-import { PetProps } from '../../../domain/interfaces/PetProps';
-import { prisma } from '../../../database/prisma/prisma';
+import { PetRepository } from "../PetRepo"
+import { PetProps } from '../../../../domain/interfaces/PetProps';
+import { prisma } from '../../../../database/prisma/prisma';
 import { Pet } from "@prisma/client";
 
 export class PetRepositoryPrisma implements PetRepository {
