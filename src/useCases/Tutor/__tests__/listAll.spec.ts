@@ -11,6 +11,7 @@ describe('ListAllTutors', () => {
             phone: "12345",
             email: "tutor1@example.com",
             date_of_birth: new Date(),
+            zipCode: "1232145",
             pets: [],
           },
           {
@@ -19,6 +20,7 @@ describe('ListAllTutors', () => {
             phone: "12345",
             email: "tutor2@example.com",
             date_of_birth: new Date(),
+            zipCode: "1232145",
             pets: [],
           }
         ],

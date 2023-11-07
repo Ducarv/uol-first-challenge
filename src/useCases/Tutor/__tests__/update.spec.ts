@@ -12,6 +12,7 @@ describe('UpdateTutor', () => {
           phone: '12345',
           email: 'tutor1@example.com',
           date_of_birth: new Date(),
+          zipCode: "1232145",
           pets: [],
         },
       ],
