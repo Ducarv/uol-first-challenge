@@ -4,13 +4,13 @@ import { TutorRepository } from "../../repos/TutorRepo";
 export class UpdateTutor {
     constructor(private repository: TutorRepository) {}
 
-    async execute(tutorId: string, props: TutorProps) {
+    async execute(tutorId: string, props: Partial<TutorProps>) {
         try {
             const tutors = await this.repository.listAll();
             const currentTutor = tutors?.find(tutor => tutor.id === tutorId);
 
             if(!currentTutor) {
-                throw new Error("Tutor not found!");
+               throw new Error("Tutor not found!");
             }
 
             const updatedTutor = {
