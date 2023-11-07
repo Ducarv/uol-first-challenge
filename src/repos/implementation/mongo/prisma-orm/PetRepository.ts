@@ -4,6 +4,12 @@ import { prisma } from '../../../../database/prisma/prisma';
 import { Pet } from "@prisma/client";
 
 export class PetRepositoryPrisma implements PetRepository {
+    async listAll(): Promise<PetProps[] | undefined> {
+      const pets = await prisma.pet.findMany();
+
+      return pets as PetProps[];
+    }
+
     async create(props: PetProps, tutorId: string): Promise<PetProps | undefined> {
       const pet = await prisma.pet.create({
         data: {
