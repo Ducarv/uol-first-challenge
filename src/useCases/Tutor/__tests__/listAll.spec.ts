@@ -3,7 +3,7 @@ import { ListAllTutors } from "../listAll";
 
 describe('ListAllTutors', () => {
   it('should list all tutors correctly', async () => {
-    const mockRepository: TutorRepository = {
+    const mockRepository: Pick<TutorRepository, "listAll"> = {
         listAll: async () => [
           {
             id: "1",
@@ -22,29 +22,9 @@ describe('ListAllTutors', () => {
             pets: [],
           }
         ],
-      
-        create: async () => ({
-          id: "2",
-          name: "Tutor 2",
-          phone: "54321",
-          email: "tutor2@example.com",
-          date_of_birth: new Date(),
-          pets: [],
-        }),
-      
-        update: async () => ({
-          id: "1",
-          name: "Tutor 1 (Updated)",
-          phone: "12345",
-          email: "tutor1@example.com",
-          date_of_birth: new Date(),
-          pets: [],
-        }),
-        
-        delete: async () => undefined,
     };
       
-    const listAllTutors = new ListAllTutors(mockRepository);
+    const listAllTutors = new ListAllTutors(mockRepository as TutorRepository);
     const result = await listAllTutors.execute();
 
     if(result) {
@@ -56,30 +36,13 @@ describe('ListAllTutors', () => {
   });
 
   it('should handle errors correctly', async () => {
-    const mockRepository: TutorRepository = {
+    const mockRepository: Pick<TutorRepository, "listAll"> = {
       listAll: async () => {
         throw new Error("Simulated error");
       },
-      create: async () => ({
-        id: "2",
-        name: "Tutor 2",
-        phone: "54321",
-        email: "tutor2@example.com",
-        date_of_birth: new Date(),
-        pets: [],
-      }),
-      update: async () => ({
-        id: "1",
-        name: "Tutor 1 (Updated)",
-        phone: "12345",
-        email: "tutor1@example.com",
-        date_of_birth: new Date(),
-        pets: [],
-      }),
-      delete: async () => undefined,
     };
 
-    const listAllTutors = new ListAllTutors(mockRepository)
+    const listAllTutors = new ListAllTutors(mockRepository as TutorRepository)
 
     await expect(listAllTutors.execute()).rejects.toThrow('Simulated error');
   });
