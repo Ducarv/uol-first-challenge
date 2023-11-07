@@ -1,13 +1,14 @@
+import { TutorProps } from "../../domain/interfaces/TutorProps";
 import { TutorRepository } from "../../repos/TutorRepo";
 
-export class ListAllTutors {
+export class UpdateTutor {
     constructor(private repository: TutorRepository) {}
 
-    async execute() {
+    async execute(tutorId: string, props: TutorProps) {
         try {
-            const tutors = await this.repository.listAll();
+            const updateTutor = await this.repository.update(tutorId, props);
 
-            return tutors;
+            return updateTutor;
         } catch(err: any) {
             if(err instanceof Error) {
                 throw new Error(err.message);
