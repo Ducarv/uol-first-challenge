@@ -6,9 +6,21 @@ export class UpdateTutor {
 
     async execute(tutorId: string, props: TutorProps) {
         try {
-            const updateTutor = await this.repository.update(tutorId, props);
+            const tutors = await this.repository.listAll();
+            const currentTutor = tutors?.find(tutor => tutor.id === tutorId);
 
-            return updateTutor;
+            if(!currentTutor) {
+                throw new Error("Tutor not found!");
+            }
+
+            const updatedTutor = {
+                ...currentTutor,
+                ...props
+            };
+
+            await this.repository.update(tutorId, updatedTutor);
+
+            return updatedTutor;
         } catch(err: any) {
             if(err instanceof Error) {
                 throw new Error(err.message);
