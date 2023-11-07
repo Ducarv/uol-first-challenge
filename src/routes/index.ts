@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { createTutorController, listAllTutorsController, updateTutorController } from "../controller/Tutor";
+import { createTutorController, deleteTutorController, listAllTutorsController, updateTutorController } from "../controller/Tutor";
 
 const router = Router();
 
@@ -13,6 +13,10 @@ router.post("/tutor", (request: Request, response: Response) => {
 
 router.put("/tutor/:id", (request: Request, response: Response) => {
     return updateTutorController.handle(request, response)
+})
+
+router.delete("/tutor/:id", (request: Request, response: Response) => {
+    return deleteTutorController.handle(request, response)
 })
 
 export { router }
