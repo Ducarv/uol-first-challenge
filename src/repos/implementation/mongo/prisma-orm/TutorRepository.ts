@@ -32,7 +32,7 @@ export class TutorRepositoryPrisma implements TutorRepository {
     return tutor as TutorProps;
   }
 
-  async delete(tutorId: string): Promise<void> {
+  async delete(tutorId: string): Promise<any> {
     await prisma.tutor.delete({
       where: { id: tutorId },
     });

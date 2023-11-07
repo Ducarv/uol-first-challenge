@@ -12,11 +12,10 @@ export class DeleteTutor {
                 await this.repository.delete(tutorId);
                 return `Tutor with ID: ${tutorId} deleted`;
             } else {
-                throw new Error(`Tutor with ID: ${tutorId}, NOT FOUND!`)
+                throw new Error(`Tutor with ID: ${tutorId}, NOT FOUND!`);
             }
-
         } catch(err: any) {
-            throw new Error()
+            throw new Error(`Tutor with ID: ${tutorId}, Delete Error!`);
         }
     }
 }

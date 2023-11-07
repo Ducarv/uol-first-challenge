@@ -30,7 +30,7 @@ export class PetRepositoryPrisma implements PetRepository {
       return pet as PetProps;
     }
   
-    async delete(petId: string, tutorId:string): Promise<void> {
+    async delete(petId: string, tutorId:string): Promise<any> {
       await prisma.pet.delete({
         where: { 
           id: petId, 
