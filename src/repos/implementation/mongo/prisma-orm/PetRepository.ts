@@ -21,15 +21,19 @@ export class PetRepositoryPrisma implements PetRepository {
     }
   
     async update(petId: string, tutorId: string, props: Partial<PetProps>): Promise<PetProps | undefined> {
-      const pet = await prisma.pet.update({
-        where: { 
-          id: petId, 
-          tutorId: tutorId 
-        },
-        data: props as Pet,
-      });
+      const updateProps = props as Omit<PetProps, "tutorId" | "tutor">
 
-      return pet as PetProps;
+      const updatedPet = await prisma.pet.update({
+        where: {
+          id: petId,
+          tutorId
+        },
+        data: {
+          ...updateProps
+        }
+      })
+
+      return updatedPet as PetProps;
     }
   
     async delete(petId: string, tutorId:string): Promise<any> {
