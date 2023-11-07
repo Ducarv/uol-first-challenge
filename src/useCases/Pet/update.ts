@@ -7,13 +7,10 @@ export class UpdatePet {
     async execute(petId: string, tutorId: string, props: Partial<PetProps>) {
         try {
             const pets = await this.repository.listAll();
-            const target = pets?.find(pet => {
-                pet.id === petId, 
-                pet.tutorId === tutorId
-            })
+            const target = pets?.find((pet) => pet.id === petId && pet.tutorId === tutorId)
 
             if(!target) {
-                throw new Error("Pet not found");
+                throw new Error("Pet NOT FOUND");
             }
 
             const updatedPet = {
@@ -26,7 +23,7 @@ export class UpdatePet {
             return updatedPet;
         } catch(err: any) {
             if(err instanceof Error) {
-                throw new Error("update PET error.")
+                throw new Error("Error to update")
             }
         }
     }
