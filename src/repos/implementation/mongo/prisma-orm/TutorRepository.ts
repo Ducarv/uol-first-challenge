@@ -19,18 +19,19 @@ export class TutorRepositoryPrisma implements TutorRepository {
   }
 
   async update(tutorId: string, props: Partial<TutorProps>): Promise<TutorProps | undefined> {
-    const tutor = await prisma.tutor.update({
-        where: {
-            id: tutorId,
-        },
-        data: props as Tutor,
-        include: {
-            pets: true,
-        }
-    });
+    const { pets, id, ...updatedProps } = props;
 
-    return tutor as TutorProps;
-  }
+    const updatedTutor = await prisma.tutor.update({
+      where: {
+        id: tutorId
+      },
+      data: {
+        ...updatedProps
+      }
+    })
+
+    return updatedTutor
+}
 
   async delete(tutorId: string): Promise<any> {
     await prisma.tutor.delete({

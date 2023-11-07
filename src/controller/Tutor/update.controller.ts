@@ -6,14 +6,14 @@ export class UpdateTutorController {
     constructor(private updateTutorUseCase: UpdateTutor) {}
 
     async handle(request: Request, response: Response) {
-        const { id } = request.params;
-        const updateTutorData: TutorProps = request.body
-
         try {
+            const { id } = request.params;
+            const updateTutorData: Partial<TutorProps> = request.body
+
             const updatedTutor = await this.updateTutorUseCase.execute(id, updateTutorData)
             response.status(202).json(updatedTutor)
         } catch (err: any) {
-            response.status(400).json({ error: "error to updade"})
+            response.status(400).json({ error: 'Failed to update tutor', message: (err as Error).message })
         }
     }
 }
