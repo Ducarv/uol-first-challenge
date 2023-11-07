@@ -16,6 +16,7 @@ model Tutor {
   phone String
   email String
   date_of_birth DateTime
+  zipCode String
   pets Pet[]
 }
 
