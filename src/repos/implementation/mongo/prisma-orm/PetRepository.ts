@@ -7,12 +7,8 @@ export class PetRepositoryPrisma implements PetRepository {
     async create(props: PetProps, tutorId: string): Promise<PetProps | undefined> {
       const pet = await prisma.pet.create({
         data: {
-          name: props.name,
-          species: props.species,
-          carry: props.carry,
-          weight: props.weight,
-          date_of_birth: props.date_of_birth,
-          tutorId: tutorId,
+          ...props as Pet,
+          tutorId: tutorId
         },
       });
       return pet as PetProps;
