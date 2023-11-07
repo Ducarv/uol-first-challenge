@@ -7,6 +7,7 @@ export class Tutor {
     phone: string;
     email: string;
     date_of_birth: Date;
+    zipCode: string;
     pets?: PetProps[]
     
     constructor(props: TutorProps) {
@@ -14,7 +15,8 @@ export class Tutor {
         this.phone = props.phone;
         this.email = props.email;
         this.date_of_birth = props.date_of_birth;
-        this.pets = props.pets
-        this.id = props.id
+        this.zipCode = props.zipCode;
+        this.pets = props.pets;
+        this.id = props.id;
     }
 }

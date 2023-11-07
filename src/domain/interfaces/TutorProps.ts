@@ -5,5 +5,6 @@ export interface TutorProps {
     phone: string;
     email: string;
     date_of_birth: Date;
+    zipCode: string;
     pets?: PetProps[]
 }
