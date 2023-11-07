@@ -5,7 +5,11 @@ import { Tutor } from "@prisma/client";
 
 export class TutorRepositoryPrisma implements TutorRepository {
   async listAll(): Promise<TutorProps[] | undefined> {
-    const tutors = await prisma.tutor.findMany();
+    const tutors = await prisma.tutor.findMany({
+      include: {
+        pets: true
+      }
+    });
 
     return tutors as TutorProps[];
   }
