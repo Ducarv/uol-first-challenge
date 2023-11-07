@@ -7,6 +7,10 @@ export class ListAllTutors {
         try {
             const tutors = await this.repository.listAll();
 
+            if(tutors?.length === 0 || tutors!.length < 1) {
+                throw new Error("Tutors NOT exists!")
+            }
+
             return tutors;
         } catch(err: any) {
             if(err instanceof Error) {
