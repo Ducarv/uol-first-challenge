@@ -50,7 +50,6 @@ export class PetRepositoryPrisma implements PetRepository {
     return updatedPet as PetProps;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async delete(petId: string, tutorId: string): Promise<any> {
     await prisma.pet.delete({
       where: {

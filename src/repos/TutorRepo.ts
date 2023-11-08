@@ -7,6 +7,5 @@ export interface TutorRepository {
     tutorId: string,
     props: Partial<TutorProps>,
   ) => Promise<TutorProps | undefined>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   delete: (tutorId: string) => Promise<any>;
 }

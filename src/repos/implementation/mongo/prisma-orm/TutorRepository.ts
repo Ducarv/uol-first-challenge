@@ -45,7 +45,6 @@ export class TutorRepositoryPrisma implements TutorRepository {
     return updatedTutor as TutorProps;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async delete(tutorId: string): Promise<any> {
     await prisma.tutor.delete({
       where: { id: tutorId },

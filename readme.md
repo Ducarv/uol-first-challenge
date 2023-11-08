@@ -24,6 +24,15 @@ All mandatory requirements have been met, and all optional requirements except f
 
 The mandatory requirements include readability, a private repository, small commits, TypeScript, Express, and a Readme.md with instructions on how to run locally. The optional requirements include Eslint, Prettier, testing, Swagger, and MongoDB.
 
+### 👉 Node version used in the script:
+```
+14.18.0
+```
+
+### 👉 Yarn version used in the script:
+```
+1.22.19
+```
 
 ## Cloning and Running the Project
 

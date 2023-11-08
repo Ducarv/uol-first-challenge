@@ -29,8 +29,6 @@ router.delete('/tutor/:id', (request: Request, response: Response) => {
   return deleteTutorController.handle(request, response);
 });
 
-// pet routes
-
 router.post('/pet/:tutorId', (request: Request, response: Response) => {
   return createPetController.handle(request, response);
 });

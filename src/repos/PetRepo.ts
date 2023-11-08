@@ -8,6 +8,5 @@ export interface PetRepository {
     tutorId: string,
     props: Partial<PetProps>,
   ) => Promise<PetProps | undefined>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   delete: (petId: string, tutorId: string) => Promise<any>;
 }
