@@ -1,29 +1,34 @@
-import { Request, Response, Router } from "express";
-import { createTutorController, deleteTutorController, listAllTutorsController, updateTutorController } from "../controller/Tutor";
-import { createPetController } from "../controller/Pet";
+import { Request, Response, Router } from 'express';
+import {
+  createTutorController,
+  deleteTutorController,
+  listAllTutorsController,
+  updateTutorController,
+} from '../controller/Tutor';
+import { createPetController } from '../controller/Pet';
 
 const router = Router();
 
-router.get("/tutors", (request: Request, response: Response) => {
-    return listAllTutorsController.handle(request, response)
-})
+router.get('/tutors', (request: Request, response: Response) => {
+  return listAllTutorsController.handle(request, response);
+});
 
-router.post("/tutor", (request: Request, response: Response) => {
-    return createTutorController.handle(request, response)
-})
+router.post('/tutor', (request: Request, response: Response) => {
+  return createTutorController.handle(request, response);
+});
 
-router.put("/tutor/:id", (request: Request, response: Response) => {
-    return updateTutorController.handle(request, response)
-})
+router.put('/tutor/:id', (request: Request, response: Response) => {
+  return updateTutorController.handle(request, response);
+});
 
-router.delete("/tutor/:id", (request: Request, response: Response) => {
-    return deleteTutorController.handle(request, response)
-})
+router.delete('/tutor/:id', (request: Request, response: Response) => {
+  return deleteTutorController.handle(request, response);
+});
 
 // pet routes
 
-router.post("/pet/:tutorId", (request: Request, response: Response) => {
-    return createPetController.handle(request, response);
-})
+router.post('/pet/:tutorId', (request: Request, response: Response) => {
+  return createPetController.handle(request, response);
+});
 
-export { router }
+export { router };

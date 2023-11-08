@@ -12,14 +12,15 @@ describe('UpdateTutor', () => {
           phone: '12345',
           email: 'tutor1@example.com',
           date_of_birth: new Date(),
-          zipCode: "1232145",
+          zipCode: '1232145',
           pets: [],
         },
       ],
-      update: async (tutorId: string, props: Partial<TutorProps>) => ({
-        ...props,
-        id: tutorId,
-      }) as TutorProps,
+      update: async (tutorId: string, props: Partial<TutorProps>) =>
+        ({
+          ...props,
+          id: tutorId,
+        }) as TutorProps,
     };
 
     const updateTutor = new UpdateTutor(mockRepository as TutorRepository);
@@ -31,11 +32,11 @@ describe('UpdateTutor', () => {
 
     const updatedTutor = await updateTutor.execute(tutorId, tutorPropsToUpdate);
 
-    if(updatedTutor) {
-        expect(updatedTutor).toBeDefined();
-        expect(updatedTutor.id).toBe(tutorId);
-        expect(updatedTutor.name).toBe('Updated Tutor Name');
-        expect(updatedTutor.phone).toBe('Updated Phone');
+    if (updatedTutor) {
+      expect(updatedTutor).toBeDefined();
+      expect(updatedTutor.id).toBe(tutorId);
+      expect(updatedTutor.name).toBe('Updated Tutor Name');
+      expect(updatedTutor.phone).toBe('Updated Phone');
     }
   });
 
@@ -43,7 +44,7 @@ describe('UpdateTutor', () => {
     const mockRepository: Pick<TutorRepository, 'update' | 'listAll'> = {
       listAll: async () => [],
       update: async () => {
-        throw new Error("Tutor not found!");
+        throw new Error('Tutor not found!');
       },
     };
 
@@ -54,6 +55,8 @@ describe('UpdateTutor', () => {
       phone: 'Updated Phone',
     };
 
-    await expect(updateTutor.execute(tutorId, tutorPropsToUpdate)).rejects.toThrow("Tutor not found!");
+    await expect(
+      updateTutor.execute(tutorId, tutorPropsToUpdate),
+    ).rejects.toThrow('Tutor not found!');
   });
 });

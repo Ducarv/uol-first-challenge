@@ -1,14 +1,14 @@
-import { TutorRepository } from "../../../TutorRepo";
-import { TutorProps } from "../../../../domain/interfaces/TutorProps";
-import { prisma } from "../../../../database/prisma/prisma";
-import { Tutor } from "@prisma/client";
+import { TutorRepository } from '../../../TutorRepo';
+import { TutorProps } from '../../../../domain/interfaces/TutorProps';
+import { prisma } from '../../../../database/prisma/prisma';
+import { Tutor } from '@prisma/client';
 
 export class TutorRepositoryPrisma implements TutorRepository {
   async listAll(): Promise<TutorProps[] | undefined> {
     const tutors = await prisma.tutor.findMany({
       include: {
-        pets: true
-      }
+        pets: true,
+      },
     });
 
     return tutors as TutorProps[];
@@ -22,18 +22,21 @@ export class TutorRepositoryPrisma implements TutorRepository {
     return tutor as TutorProps;
   }
 
-  async update(tutorId: string, props: Partial<TutorProps>): Promise<TutorProps | undefined> {
+  async update(
+    tutorId: string,
+    props: Partial<TutorProps>,
+  ): Promise<TutorProps | undefined> {
     const { pets, id, ...updatedProps } = props;
 
     const updatedTutor = await prisma.tutor.update({
       where: {
-        id: tutorId
+        id: tutorId,
       },
-      data: updatedProps
-    })
+      data: updatedProps,
+    });
 
     return updatedTutor;
-}
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async delete(tutorId: string): Promise<any> {
