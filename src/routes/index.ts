@@ -5,7 +5,11 @@ import {
   listAllTutorsController,
   updateTutorController,
 } from '../controller/Tutor';
-import { createPetController, deletePetController, updatePetController } from '../controller/Pet';
+import {
+  createPetController,
+  deletePetController,
+  updatePetController,
+} from '../controller/Pet';
 
 const router = Router();
 
