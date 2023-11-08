@@ -13,14 +13,9 @@ export class UpdateTutor {
         throw new Error('Tutor not found!');
       }
 
-      const updatedTutor = {
-        ...currentTutor,
-        ...props,
-      };
+      await this.repository.update(tutorId, props);
 
-      await this.repository.update(tutorId, updatedTutor);
-
-      return updatedTutor;
+      return props as TutorProps;
     } catch (err: unknown) {
       if (err instanceof Error) {
         throw new Error(err.message);

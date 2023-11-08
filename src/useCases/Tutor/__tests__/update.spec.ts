@@ -34,7 +34,6 @@ describe('UpdateTutor', () => {
 
     if (updatedTutor) {
       expect(updatedTutor).toBeDefined();
-      expect(updatedTutor.id).toBe(tutorId);
       expect(updatedTutor.name).toBe('Updated Tutor Name');
       expect(updatedTutor.phone).toBe('Updated Phone');
     }

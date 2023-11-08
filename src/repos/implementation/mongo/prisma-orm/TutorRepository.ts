@@ -26,16 +26,24 @@ export class TutorRepositoryPrisma implements TutorRepository {
     tutorId: string,
     props: Partial<TutorProps>,
   ): Promise<TutorProps | undefined> {
-    const { pets, id, ...updatedProps } = props;
+    const tutor = await prisma.tutor.findUnique({
+      where: {
+        id: tutorId,
+      },
+    });
+
+    if (!tutor) {
+      throw new Error('Tutor not found.');
+    }
 
     const updatedTutor = await prisma.tutor.update({
       where: {
         id: tutorId,
       },
-      data: updatedProps,
+      data: props as Omit<TutorProps, 'id' | 'pets'>,
     });
 
-    return updatedTutor;
+    return updatedTutor as TutorProps;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
