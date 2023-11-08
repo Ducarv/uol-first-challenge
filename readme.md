@@ -26,7 +26,7 @@ The mandatory requirements include readability, a private repository, small comm
 
 ### 👉 Node version used in the script:
 ```
-14.18.0
+16.20.2
 ```
 
 ### 👉 Yarn version used in the script:
