@@ -29,12 +29,10 @@ export class TutorRepositoryPrisma implements TutorRepository {
       where: {
         id: tutorId
       },
-      data: {
-        ...updatedProps
-      }
+      data: updatedProps
     })
 
-    return updatedTutor
+    return updatedTutor;
 }
 
   async delete(tutorId: string): Promise<any> {
