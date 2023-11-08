@@ -28,16 +28,23 @@ export class PetRepositoryPrisma implements PetRepository {
     tutorId: string,
     props: Partial<PetProps>,
   ): Promise<PetProps | undefined> {
-    const updateProps = props as Omit<PetProps, 'tutorId' | 'tutor'>;
+    const pet = await prisma.pet.findUnique({
+      where: {
+        id: petId,
+        tutorId: tutorId,
+      },
+    });
+
+    if (!pet) {
+      throw new Error('Pet not found');
+    }
 
     const updatedPet = await prisma.pet.update({
       where: {
         id: petId,
-        tutorId,
+        tutorId: tutorId,
       },
-      data: {
-        ...updateProps,
-      },
+      data: props as Omit<PetProps, 'tutorId' | 'tutor'>,
     });
 
     return updatedPet as PetProps;

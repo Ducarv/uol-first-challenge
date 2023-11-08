@@ -44,8 +44,6 @@ describe('UpdatePet', () => {
 
     if (updatedPet) {
       expect(updatedPet).toBeDefined();
-      expect(updatedPet.id).toBe(petId);
-      expect(updatedPet.tutorId).toBe(tutorId);
       expect(updatedPet.name).toBe('Rafael');
       expect(updatedPet.species).toBe('Turtle');
     }

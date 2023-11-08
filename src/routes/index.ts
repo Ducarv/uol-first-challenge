@@ -5,7 +5,7 @@ import {
   listAllTutorsController,
   updateTutorController,
 } from '../controller/Tutor';
-import { createPetController } from '../controller/Pet';
+import { createPetController, updatePetController } from '../controller/Pet';
 
 const router = Router();
 
@@ -30,5 +30,12 @@ router.delete('/tutor/:id', (request: Request, response: Response) => {
 router.post('/pet/:tutorId', (request: Request, response: Response) => {
   return createPetController.handle(request, response);
 });
+
+router.put(
+  '/pet/:petId/tutor/:tutorId',
+  (request: Request, response: Response) => {
+    return updatePetController.handle(request, response);
+  },
+);
 
 export { router };

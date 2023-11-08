@@ -15,14 +15,8 @@ export class UpdatePet {
         throw new Error('Pet NOT FOUND');
       }
 
-      const updatedPet = {
-        ...target,
-        ...props,
-      };
-
-      await this.repository.update(petId, tutorId, updatedPet);
-
-      return updatedPet;
+      await this.repository.update(petId, tutorId, props);
+      return props as PetProps;
     } catch (err: unknown) {
       if (err instanceof Error) {
         throw new Error('Error to update');
