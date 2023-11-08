@@ -54,7 +54,7 @@ yarn install
 yarn start:dev
 ```
 4. Open your browser and navigate to <http://localhost:3000> to access the API
-   obs: 3000 is default port.
+   (obs: 3000 is default port.)
 
 ## Testing
 
