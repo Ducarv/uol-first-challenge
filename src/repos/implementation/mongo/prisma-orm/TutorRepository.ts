@@ -1,7 +1,6 @@
 import { TutorRepository } from '../../../TutorRepo';
 import { TutorProps } from '../../../../domain/interfaces/TutorProps';
 import { prisma } from '../../../../database/prisma/prisma';
-import { Tutor } from '@prisma/client';
 
 export class TutorRepositoryPrisma implements TutorRepository {
   async listAll(): Promise<TutorProps[] | undefined> {
@@ -16,7 +15,7 @@ export class TutorRepositoryPrisma implements TutorRepository {
 
   async create(props: TutorProps): Promise<TutorProps | undefined> {
     const tutor = await prisma.tutor.create({
-      data: props as Tutor,
+      data: props as Omit<TutorProps, 'id' | 'pets'>,
     });
 
     return tutor as TutorProps;
