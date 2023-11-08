@@ -12,7 +12,7 @@ export class UpdateTutorController {
 
             const updatedTutor = await this.updateTutorUseCase.execute(id, updateTutorData)
             response.status(202).json(updatedTutor)
-        } catch (err: any) {
+        } catch (err: unknown) {
             response.status(400).json({ error: 'Failed to update tutor', message: (err as Error).message })
         }
     }

@@ -21,7 +21,7 @@ export class UpdatePet {
             await this.repository.update(petId, tutorId, updatedPet);
             
             return updatedPet;
-        } catch(err: any) {
+        } catch(err: unknown) {
             if(err instanceof Error) {
                 throw new Error("Error to update")
             }

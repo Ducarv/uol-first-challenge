@@ -9,7 +9,7 @@ export class CreateTutor {
             const newTutor = await this.repository.create(props);
             
             return newTutor;
-        } catch(err: any) {
+        } catch(err: unknown) {
             if(err instanceof Error) {
                 throw new Error(err.message);
             }

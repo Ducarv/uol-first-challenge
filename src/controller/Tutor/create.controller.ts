@@ -11,7 +11,7 @@ export class CreateTutorController {
         try {
             const newTutor = await this.createTutorUseCase.execute(tutorData)
             response.status(201).json(newTutor)
-        } catch(err: any) {
+        } catch(err: unknown) {
             response.status(500).json({ error: "An error occurred" })
         }
     }

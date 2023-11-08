@@ -21,7 +21,7 @@ export class DeletePet {
 
             return `Pet with id: ${petId} deleted.`
 
-        } catch(err:any) {
+        } catch(err:unknown) {
             throw new Error("Delete error.");
         }
     }

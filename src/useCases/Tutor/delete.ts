@@ -14,7 +14,7 @@ export class DeleteTutor {
             } else {
                 throw new Error(`Tutor with ID: ${tutorId}, NOT FOUND!`);
             }
-        } catch(err: any) {
+        } catch(err: unknown) {
             throw new Error(`Tutor with ID: ${tutorId}, Delete Error!`);
         }
     }

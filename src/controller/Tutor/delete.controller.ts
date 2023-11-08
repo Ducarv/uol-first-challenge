@@ -10,7 +10,7 @@ export class DeleteTutorController {
         try {
             await this.deleteTutorUseCase.execute(id);
             response.status(200).json({ message: `Tutor with id: ${id} deleted.`})
-        } catch (err: any) {
+        } catch (err: unknown) {
             response.status(400).json({ error: 'Failed to delete tutor', message: (err as Error).message })
         }
     }

@@ -8,7 +8,7 @@ export class CreatePet {
         try {
             const newPet = await this.repository.create(props, tutorId);
             return newPet;
-        } catch(err: any) {
+        } catch(err: unknown) {
             if(err instanceof Error) {
                 throw new Error(err.message);
             }

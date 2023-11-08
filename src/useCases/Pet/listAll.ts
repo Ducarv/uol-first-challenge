@@ -1,7 +1,7 @@
 import { PetRepository } from "../../repos/PetRepo";
 
 export class ListAllPets {
-    constructor(private repository: PetRepository) {};
+    constructor(private repository: PetRepository) {}
 
     async execute() {
         try {
@@ -12,7 +12,7 @@ export class ListAllPets {
             }
 
             return pets;
-        } catch (err: any) {
+        } catch (err: unknown) {
             if(err instanceof Error) {
                 throw new Error(err.message);
             }

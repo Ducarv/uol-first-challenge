@@ -11,7 +11,7 @@ export class ListAllTutorsController {
             const tutors = await this.listAllUseCase.execute();
 
             response.status(200).json(tutors);
-        } catch(err: any) {
+        } catch(err: unknown) {
             response.status(400).send((err as Error).message)
         }
     }
