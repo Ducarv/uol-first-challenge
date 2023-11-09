@@ -1,0 +1,290 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PB 10/2023: compass.uol - FIRST CHALLENGE",
+    "description": "Creating an API for a veterinary clinic!",
+    "contact": {
+      "email": "eduardocarvpro@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    },
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/tutors": {
+      "get": {
+        "summary": "List all the tutors on the system.",
+        "description": "If you just use the GET method the code will return all the tutors registered in the database.",
+        "tags": ["Tutor"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return all tutors."
+          }
+        }
+      }
+    },
+    "/tutor": {
+      "post": {
+        "summary": "Create a new tutor.",
+        "description": "Create a new tutor on the system.",
+        "tags": ["Tutor"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "tutor": {
+                  "value": {
+                    "name": "Jonh Doe",
+                    "phone": "11 11111 1111",
+                    "email": "example@mail.com",
+                    "date_of_birth": "2024-02-28T08:45:00.000Z",
+                    "zipCode": "0000-0000"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created."
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        }
+      }
+    },
+    "/tutor/{id}": {
+      "put": {
+        "summary": "Update a specific tutor.",
+        "description": "Update a specific tutor registered on the system using his id.",
+        "tags": ["Tutor"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Change any information by using the id of the tutor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "tutor": {
+                  "value": {
+                    "name": "Jack Rider",
+                    "phone": "10 9999-8888"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a specific tutor.",
+        "description": "Delete a specific tutor registered on the system by using his id.",
+        "tags": ["Tutor"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Delete all the informations by using the id of the tutor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/pet/{tutorId}": {
+      "post": {
+        "summary": "Creates a pet",
+        "description": "Creates a pet and adds it to a tutor by id",
+        "tags": ["Pet"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "tutorId",
+            "in": "path",
+            "description": "Create all the informations by using the id of the tutor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "pet": {
+                  "value": {
+                    "name": "Spike",
+                    "species": "dog",
+                    "carry": "g",
+                    "weight": 30,
+                    "date_of_birth": "2024-02-28T08:45:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created."
+          },
+          "400": {
+            "description": "Failed to create."
+          }
+        }
+      }
+    },
+    "/pet/{petId}/tutor/{tutorId}": {
+      "put": {
+        "summary": "Update a specific pet.",
+        "description": "Update a specific pet registered on the system using his id and his tutorId.",
+        "tags": ["Pet"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "Change any information by using the id of the pet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tutorId",
+            "in": "path",
+            "description": "Change any information by using the id of the tutor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "tutor": {
+                  "value": {
+                    "name": "Lulu",
+                    "species": "bat"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Updated."
+          },
+          "404": {
+            "description": "Failed to update pet."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a specific pet.",
+        "description": "Delete a specific pet registered on the system by using his id and hist tutorId.",
+        "tags": ["Pet"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "Change any information by using the id of the pet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tutorId",
+            "in": "path",
+            "description": "Change any information by using the id of the tutor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    }
+  }
+}
