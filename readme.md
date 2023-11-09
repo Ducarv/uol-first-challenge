@@ -56,6 +56,18 @@ yarn start:dev
 4. Open your browser and navigate to <http://localhost:3000> to access the API
    (obs: 3000 is default port.)
 
+## Swagger Document
+
+**Start the server:**
+```bash
+yarn start
+```
+
+Use the Endpoind below:
+```bash
+'/api/v1/api-docs'
+```
+
 ## Testing
 
 To run the project tests, use the following command:
