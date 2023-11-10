@@ -52,7 +52,7 @@
                 "tutor": {
                   "value": {
                     "name": "Jonh Doe",
-                    "phone": "11 11111 1111",
+                    "phone": "11 1111111",
                     "email": "example@mail.com",
                     "date_of_birth": "2024-02-28T08:45:00.000Z",
                     "zipCode": "0000-0000"
@@ -100,7 +100,7 @@
                 "tutor": {
                   "value": {
                     "name": "Jack Rider",
-                    "phone": "10 9999-8888"
+                    "phone": "10 9999-888"
                   }
                 }
               }
