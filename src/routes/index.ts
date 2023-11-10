@@ -13,37 +13,37 @@ import {
 
 const router = Router();
 
-router.get('/tutors', (request: Request, response: Response) => {
-  return listAllTutorsController.handle(request, response);
+router.get('/tutors', async (request: Request, response: Response) => {
+  await listAllTutorsController.handle(request, response);
 });
 
-router.post('/tutor', (request: Request, response: Response) => {
-  return createTutorController.handle(request, response);
+router.post('/tutor', async (request: Request, response: Response) => {
+  await createTutorController.handle(request, response);
 });
 
-router.put('/tutor/:id', (request: Request, response: Response) => {
-  return updateTutorController.handle(request, response);
+router.put('/tutor/:id', async (request: Request, response: Response) => {
+  await updateTutorController.handle(request, response);
 });
 
-router.delete('/tutor/:id', (request: Request, response: Response) => {
-  return deleteTutorController.handle(request, response);
+router.delete('/tutor/:id', async (request: Request, response: Response) => {
+  await deleteTutorController.handle(request, response);
 });
 
-router.post('/pet/:tutorId', (request: Request, response: Response) => {
-  return createPetController.handle(request, response);
+router.post('/pet/:tutorId', async (request: Request, response: Response) => {
+  await createPetController.handle(request, response);
 });
 
 router.put(
   '/pet/:petId/tutor/:tutorId',
-  (request: Request, response: Response) => {
-    return updatePetController.handle(request, response);
+  async (request: Request, response: Response) => {
+    await updatePetController.handle(request, response);
   },
 );
 
 router.delete(
   '/pet/:petId/tutor/:tutorId',
-  (request: Request, response: Response) => {
-    return deletePetController.handle(request, response);
+  async (request: Request, response: Response) => {
+    await deletePetController.handle(request, response);
   },
 );
 
