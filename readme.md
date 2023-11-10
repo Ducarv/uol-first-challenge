@@ -48,12 +48,18 @@ git clone https://github.com/Ducarv/uol-first-challenge.git
 cd uol-first-challenge
 yarn install
 ```
-3. Start the development server:
+3. This project use MongoDB with PrismaORM, before all:
+```bash
+prisma generate
+
+prisma db push
+```
+4. Start the development server:
 
 ```bash
 yarn start:dev
 ```
-4. Open your browser and navigate to <http://localhost:3000> to access the API
+5. Open your browser and navigate to <http://localhost:3000> to access the API
    (obs: 3000 is default port.)
 
 ## Swagger Document
