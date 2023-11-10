@@ -1,0 +1,221 @@
+{
+  "name": "challenge.collection",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "create Tutor",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:3000/tutor",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"name\": \"example\",\n  \"phone\": \"11 111111\",\n  \"email\": \"example@rmail.com\",\n  \"date_of_birth\": \"2024-02-28T08:45:00.000Z\",\n  \"zipCode\": \"000000\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "delete tutor",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:3000/tutor/654e6c3017efc37f17b51a0e",
+        "method": "DELETE",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "list All",
+      "seq": 1,
+      "request": {
+        "url": "http://localhost:3000/tutors",
+        "method": "GET",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "update tutor",
+      "seq": 3,
+      "request": {
+        "url": "http://localhost:3000/tutor/654e6c3017efc37f17b51a0e",
+        "method": "PUT",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"zipCode\": \"1\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "create pet",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:3000/pet/654e6c3017efc37f17b51a0e",
+        "method": "POST",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"name\": \"pet example\",\n  \"species\": \"dog\",\n  \"carry\": \"p\",\n  \"weight\": 5,\n  \"date_of_birth\": \"2024-02-28T08:45:00.000Z\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "update pet",
+      "seq": 6,
+      "request": {
+        "url": "http://localhost:3000/pet/654e6c5417efc37f17b51a0f/tutor/654e6c3017efc37f17b51a0e",
+        "method": "PUT",
+        "headers": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"species\": \"cat\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    },
+    {
+      "type": "http",
+      "name": "delete pet",
+      "seq": 7,
+      "request": {
+        "url": "http://localhost:3000/pet/654e6c5417efc37f17b51a0f/tutor/654e6c3017efc37f17b51a0e",
+        "method": "DELETE",
+        "headers": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "query": []
+      }
+    }
+  ],
+  "environments": []
+}

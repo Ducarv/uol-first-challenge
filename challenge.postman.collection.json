@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "challenge.collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "create Tutor",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/tutor",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"example\",\n  \"phone\": \"11 111111\",\n  \"email\": \"example@rmail.com\",\n  \"date_of_birth\": \"2024-02-28T08:45:00.000Z\",\n  \"zipCode\": \"000000\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "delete tutor",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "http://localhost:8080/tutor/654e6c3017efc37f17b51a0e"
+      }
+    },
+    {
+      "name": "list All",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/tutors"
+      }
+    },
+    {
+      "name": "update tutor",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "http://localhost:8080/tutor/654e6c3017efc37f17b51a0e",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"zipCode\": \"1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "create pet",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/pet/654e6c3017efc37f17b51a0e",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"pet example\",\n  \"species\": \"dog\",\n  \"carry\": \"p\",\n  \"weight\": 5,\n  \"date_of_birth\": \"2024-02-28T08:45:00.000Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "update pet",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "http://localhost:8080/pet/654e6c5417efc37f17b51a0f/tutor/654e6c3017efc37f17b51a0e",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"species\": \"cat\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "delete pet",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "http://localhost:8080/pet/654e6c5417efc37f17b51a0f/tutor/654e6c3017efc37f17b51a0e"
+      }
+    }
+  ],
+  "variable": []
+}
