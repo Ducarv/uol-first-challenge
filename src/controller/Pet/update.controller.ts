@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { UpdatePet } from '../../useCases/Pet/update';
 import { PetProps } from '../../domain/interfaces/PetProps';
+import { ValidatorPetProps } from '../../validators/pet';
 
 export class UpdatePetController {
   constructor(private updatePetUseCase: UpdatePet) {}
@@ -9,11 +10,20 @@ export class UpdatePetController {
     const updatePetData: Partial<PetProps> = request.body;
     const { petId, tutorId } = request.params;
 
+    const partialValidator = ValidatorPetProps.partial();
+    const validationResult = partialValidator.safeParse(updatePetData);
+
+    if (!validationResult.success) {
+      return response
+        .status(400)
+        .json({ errors: validationResult.error.errors });
+    }
+
     try {
       const updatedPet = await this.updatePetUseCase.execute(
         petId,
         tutorId,
-        updatePetData,
+        validationResult.data as PetProps,
       );
 
       response.status(201).json(updatedPet);
