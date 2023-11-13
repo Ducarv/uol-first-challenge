@@ -20,7 +20,7 @@ The microservice will provide a REST API with the following endpoints:
 
 **Mandatory:**
 
-All mandatory requirements have been met, and all optional requirements except for Swagger have been met.
+All mandatory and all optional requirements have been met.
 
 The mandatory requirements include readability, a private repository, small commits, TypeScript, Express, and a Readme.md with instructions on how to run locally. The optional requirements include Eslint, Prettier, testing, Swagger, and MongoDB.
 
